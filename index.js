@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', function() {
         for(let j = 0; j < columns; j++){
             let item = document.createElement('div');
             item.classList.add('item');
+
+            item.addEventListener('mouseover', function() {
+                item.classList.add('hovered')
+            })
+
             container.appendChild(item);
         }
     }

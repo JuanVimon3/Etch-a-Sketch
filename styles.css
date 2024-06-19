@@ -1,10 +1,20 @@
 #container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 352px;
+    height: 352px;
 }
 .item{
-    flex-wrap: wrap;
     width: 20px;
     height: 20px;
-    border: 1px solid #000; /* Borde para cada celda */
-    background-color: lightgray; /* Color de fondo de las celdas */
+    border: 1px solid #000; 
+    background-color: lightgray;
+}
+.item.hovered{
+    background-color: azure;
+}
+.restart{
+    margin-left: 20px;
+    margin-bottom: 40px;
 }
