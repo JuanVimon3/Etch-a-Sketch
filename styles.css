@@ -1,0 +1,10 @@
+#container {
+    display: flex;
+}
+.item{
+    flex-wrap: wrap;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000; /* Borde para cada celda */
+    background-color: lightgray; /* Color de fondo de las celdas */
+}
