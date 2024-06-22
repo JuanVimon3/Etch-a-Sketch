@@ -1,12 +1,13 @@
-document.addEventListener('DOMContentLoaded', function() {
+let fillGrid = (size) => {
     let container = document.getElementById('container');
-    let rows = 16;
-    let columns = 16;
-    
-    for(let i = 0; i < rows; i++){
-        for(let j = 0; j < columns; j++){
+    let itemSize = Math.floor(100/size)
+    for(let i = 0; i < size; i++){
+        for(let j = 0; j < size; j++){
             let item = document.createElement('div');
             item.classList.add('item');
+
+            item.style.width = `${itemSize}%`
+            item.style.height = `${itemSize}%`
 
             item.addEventListener('mouseover', function() {
                 item.classList.add('hovered')
@@ -15,34 +16,22 @@ document.addEventListener('DOMContentLoaded', function() {
             container.appendChild(item);
         }
     }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    fillGrid(16)
 });
 
 function restart () {
     const newSize = window.prompt("Please input a new size between 1 and 100:")
     const newSizeInt = parseInt(newSize);
-    console.log(newSizeInt);
-    const container = document.getElementById("container");
-    container.innerHTML = '';
-    const newRows = newSize;
-    const newColumns = newSize;
-
-    if (newSize <= 100){
-        for(let i = 0; i < newRows; i++){
-            for(let j = 0; j < newColumns; j++){
-                let newItem = document.createElement('div');
-                newItem.classList.add('newItem')
-    
-                newItem.addEventListener('mouseover', function(){
-                    newItem.classList.add('hovered')
-                })
-    
-                container.appendChild(newItem)
-            }
-        } 
+    if(newSizeInt > 0 &&  newSizeInt <= 100){
+        const container = document.getElementById("container");
+        container.innerHTML = '';
+        fillGrid(newSizeInt)
     }else{
-        restart()
+        alert("Please enter a valid size between 0 and 100")
     }
+    
 }
 
-// borrar el contenido de los hijos de container 
-//crear nueva funciòn con la lògica del nuevo grid redimensionado
