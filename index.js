@@ -10,7 +10,10 @@ let fillGrid = (size) => {
             item.style.height = `${itemSize}%`
 
             item.addEventListener('mouseover', function() {
+                const randomColor = Math.floor(Math.random()*16777215).toString(16)
                 item.classList.add('hovered')
+                item.style.backgroundColor = '#' + randomColor
+                item.style.opacity = 0.33;
             })
 
             container.appendChild(item);
